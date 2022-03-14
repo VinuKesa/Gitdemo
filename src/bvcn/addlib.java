@@ -27,6 +27,7 @@ public class addlib {
     given().header("Content-Type","application/json").body(postpayload.addlibrary(aisle,isbn))
 	.when().post("Library/Addbook.php")
 	.then().assertThat().statusCode(200).extract().response().asString();
+	System.out.println("done");
 	
 	JsonPath js1=reusable.rawToJson(res);
 	String id=js1.get("ID");
